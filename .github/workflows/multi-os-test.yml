@@ -1,0 +1,35 @@
+name: Multi-OS Testing - KhushiShah
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  test-ubuntu:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Start Ubuntu test
+        run: echo "Testing on Ubuntu..."
+      - name: OS info
+        run: uname -a
+      - name: Create test file
+        run: echo "Ubuntu test by KhushiShah" > test-ubuntu.txt
+      - name: Display file
+        run: cat test-ubuntu.txt
+      - name: Finish Ubuntu test
+        run: echo "Ubuntu tests completed"
+
+  test-windows:
+    runs-on: windows-latest
+    steps:
+      - name: Start Windows test
+        run: echo "Testing on Windows..."
+      - name: OS info
+        run: systeminfo
+      - name: Create test file
+        run: echo "Windows test by KhushiShah" > test-windows.txt
+      - name: Display file
+        run: type test-windows.txt
+      - name: Finish Windows test
+        run: echo "Windows tests completed"
